@@ -11,7 +11,7 @@ output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
-img = cv2.imread("./image/Screenshot (869).png")
+img = cv2.imread("./image/Screenshot3.png")
 img = cv2.resize(img, None, fx=0.4, fy=0.4)
 height, width, channels = img.shape
 
@@ -51,10 +51,10 @@ for i in range(len(boxes)):
         label = "{}: {:.4f}".format(classes[class_ids[i]], confidences[i])
         color = colors[i]
         cv2.rectangle(img, (x, y), (x + w, y + h), (0,255,0), 2)
-        cv2.putText(img, label, (x, y -5), font, 0.5, (255,255,255), 1)
+        # cv2.putText(img, label, (x, y -5), font, 0.5, (255,255,255), 1)
 
 img = cv2.resize(img, None, fx=1, fy=1)
 cv2.imshow("Image", img)
-cv2.imwrite('./image/new_image1.jpg',img)
+cv2.imwrite('./image/new_image.jpg',img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
